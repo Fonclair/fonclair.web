@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Minimal Website</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(45deg, #f23456, #b3ff2f, #000000);
+      background-size: 600% 600%;
+      animation: gradient-animation 10s ease infinite;
+      font-family: arial;
+      font-size: 14px;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    header img {
+      width: 100px;
+      height: auto;
+    }
+
+    .text-placeholder {
+      margin-top: 20px;
+    }
+
+    .accordion {
+      margin-top: 30vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .accordion-item {
+      margin: 10px 0;
+    }
+
+    .accordion-item button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .accordion-item .content {
+      display: none;
+      font-size: 14px;
+      color: #FFFFFF;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .accordion-item.active .content {
+      display: block;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      left: 20px;
+      font-size: 14px;
+    }
+
+    /* Stop button style */
+    .stop-button {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      padding: 10px;
+      background-color: #ffffff;
+      color: white;
+      border: none;
+      font-size: 16px;
+      color: black;
+      cursor: pointer;
+    }
+
+    .stop-button:hover {
+      background-color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logofonclair.png" alt="Logo">
+    <div class="text-placeholder">multidisciplinary sound artist</div>
+  </header>
+
+  <section class="accordion">
+    <div class="accordion-item">
+      <button onclick="this.parentElement.classList.toggle('active')">About +</button>
+      <div class="content">
+        <p>Dean Strasser or Fonclair approaches his craft with an unwavering desire to grow and refine his artistry, always seeking to deepen his understanding of the relationship between sounds and emotion. Rooted in a rich blend of Luxembourgish and Malagasy influences, his performances are carefully shaped to resonate with diverse audiences. His sets are a thoughtful mix of rhythm, melody, and texture, designed to create an immersive experience that draws listeners in. Having been a staple at De Gudde Wëllen for over a decade, his approach remains humble and ever-evolving. He is known for his technical skills and knack for building tension, as well as his attention to detail and ability to read the crowd, ensuring that each set feels right for the moment. With a genuine love for music and an openness to new ideas, his performances leave a lasting impression without seeking the spotlight, focusing instead on creating a collective journey that everyone can enjoy.</p><p>Fonclair expanded his creative horizons as an experimental sound composer and live performer for digital art expositions in Luxembourg and Paris. His work during this period was deeply rooted in exploring the intersection of sound and visual art, crafting immersive auditory experiences that complemented the dynamic nature of digital installations. These live performances pushed the boundaries of conventional sound design, as he used unconventional methods to create textures and atmospheres that brought the art to life. His involvement in these projects allowed him to refine his technical skills and experiment with new forms of expression, further enriching his approach to music and live sets.</p>
+
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button onclick="this.parentElement.classList.toggle('active')">Work +</button>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula arcu vitae ante tempus...</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button onclick="this.parentElement.classList.toggle('active')">Contact +</button>
+      <div class="content">
+        <p>Tel: +352661864586</p>
+        <p>Mail: xxx@fonclair.net</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stop Button -->
+  <button class="stop-button" id="stopButton">Stop Sound</button>
+
+  <footer>
+    © 2025 Fonclair
+  </footer>
+
+  <script>
+    // Create a new audio context
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Create an oscillator node for the sine wave
+    const oscillator = audioContext.createOscillator();
+    oscillator.type = 'sine'; // Sine wave
+    oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // Start frequency at 440Hz
+    oscillator.connect(audioContext.destination);
+    oscillator.start();
+
+    // Function to update frequency based on mouse movement
+    document.addEventListener('mousemove', (event) => {
+      // Map mouse position (x-axis) to a frequency range
+      const frequency = Math.map(event.clientX, 0, window.innerWidth, 100, 1000);
+      oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+    });
+
+    // Function to stop the sound
+    document.getElementById('stopButton').addEventListener('click', () => {
+      oscillator.stop(); // Stops the oscillator
+      oscillator.disconnect(); // Disconnects the oscillator from the audio context
+      document.getElementById('stopButton').disabled = true; // Disables the stop button
+    });
+
+    // Adding a smooth mapping function
+    Math.map = function (value, inMin, inMax, outMin, outMax) {
+      return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    };
+  </script>
+</body>
+</html>
