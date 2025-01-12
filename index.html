@@ -9,7 +9,7 @@
       margin: 0;
       background: linear-gradient(45deg, #f23456, #b3ff2f, #000000);
       background-size: 600% 600%;
-      animation: gradient-animation 10s ease infinite;
+      animation: gradient-animation 20s ease infinite;
       font-family: arial;
       font-size: 14px;
       color: black;
@@ -95,6 +95,15 @@
     .stop-button:hover {
       background-color: #ff0000;
     }
+    
+    .email-link {
+    color: #ffffff; /* Default color */
+    text-decoration: none; /* Remove underline */
+    }
+
+  .email-link:hover {
+    color: black; /* Change to black on hover */
+    }
   </style>
 </head>
 <body>
@@ -114,14 +123,14 @@
     <div class="accordion-item">
       <button onclick="this.parentElement.classList.toggle('active')">Work +</button>
       <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula arcu vitae ante tempus...</p>
+        <p>Listing under construction...</p>
       </div>
     </div>
     <div class="accordion-item">
       <button onclick="this.parentElement.classList.toggle('active')">Contact +</button>
       <div class="content">
-        <p>Tel: +352661864586</p>
-        <p>Mail: xxx@fonclair.net</p>
+        <p>+352661864586</p>
+        <p><a href="mailto:strasserdean@icloud.com" class="email-link">strasserdean@icloud.com</a></p>
       </div>
     </div>
   </section>
