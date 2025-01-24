@@ -6,8 +6,9 @@
   <title>Fonclair | Sound Artist</title>
   <style>
     body {
-      margin: 0;
-      background: linear-gradient(45deg, #f23456, #b3ff2f, #000000);
+cursor: none; /* Hides the default cursor */      
+margin: 0;
+      background: linear-gradient(45deg, #f23456, #3800a1, #000000);
       background-size: 600% 600%;
       animation: gradient-animation 20s ease infinite;
       font-family: arial;
@@ -32,7 +33,7 @@
     }
 
     header img {
-      width: 100px;
+      width: 200px;
       height: auto;
     }
 
@@ -41,7 +42,8 @@
     }
 
     .accordion {
-      margin-top: 30vh;
+      margin-top: 5vh;
+      margin-bottom: 25px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -49,7 +51,7 @@
     }
 
     .accordion-item {
-      margin: 10px 0;
+      margin: 5px 0;
     }
 
     .accordion-item button {
@@ -57,16 +59,12 @@
       border: none;
       cursor: pointer;
       font-size: 14px;
-      -webkit-appearance: none; /* Remove default styling on WebKit browsers (Safari, Chrome) */
-      -moz-appearance: none;    /* Remove default styling on Firefox */
-      outline: none;            /* Remove the blue outline on focus */
-      color: black;             /* Ensure the text is white */
     }
 
     .accordion-item .content {
       display: none;
       font-size: 14px;
-      color: #FFFFFF;
+      color: white;
       margin-top: 5px;
       font-weight: bold;
     }
@@ -99,39 +97,87 @@
     .stop-button:hover {
       background-color: #ff0000;
     }
-    
+
     .email-link {
-    color: #ffffff; /* Default color */
-    text-decoration: none; /* Remove underline */
+      color: #ffffff;
+      text-decoration: none;
     }
 
-  .email-link:hover {
-    color: black; /* Change to black on hover */
+    .email-link:hover {
+      color: black;
+    }
+
+    /* Work section grid layout */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .work-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    .work-item p {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #FFFFFF;
+    }
+
+    /* Canvas styles for particle effect */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* Allow clicking through the canvas */
     }
   </style>
 </head>
 <body>
+  <canvas></canvas>
   <header>
-    <img src="logofonclair.png" alt="Logo">
+    <img src="logofonclair2.png" alt="Logo">
     <div class="text-placeholder">multidisciplinary sound artist</div>
   </header>
 
   <section class="accordion">
     <div class="accordion-item">
-      <button onclick="this.parentElement.classList.toggle('active')">About +</button>
+      <button onclick="toggleAccordion(this, 'sound1')">About +</button>
       <div class="content">
-        <p>Dean Strasser or Fonclair approaches his craft with an unwavering desire to grow and refine his artistry, always seeking to deepen his understanding of the relationship between sounds and emotion. Rooted in a rich blend of Luxembourgish and Malagasy influences, his performances are carefully shaped to resonate with diverse audiences. His sets are a thoughtful mix of rhythm, melody, and texture, designed to create an immersive experience that draws listeners in. Having been a staple at De Gudde Wëllen for over a decade, his approach remains humble and ever-evolving. He is known for his technical skills and knack for building tension, as well as his attention to detail and ability to read the crowd, ensuring that each set feels right for the moment. With a genuine love for music and an openness to new ideas, his performances leave a lasting impression without seeking the spotlight, focusing instead on creating a collective journey that everyone can enjoy.</p><p>Fonclair expanded his creative horizons as an experimental sound composer and live performer for digital art expositions in Luxembourg and Paris. His work during this period was deeply rooted in exploring the intersection of sound and visual art, crafting immersive auditory experiences that complemented the dynamic nature of digital installations. These live performances pushed the boundaries of conventional sound design, as he used unconventional methods to create textures and atmospheres that brought the art to life. His involvement in these projects allowed him to refine his technical skills and experiment with new forms of expression, further enriching his approach to music and live sets.</p>
+        <p>As a multidisciplinary sound artist and live performer for digital art expositions, Dean Strasser, also known as Fonclair, explores the intersection of sound and visual art, crafting immersive auditory experiences that complement dynamic digital installations. Pushing the boundaries of conventional sound design, he creates unique textures and atmospheres that bring art to life while constantly refining his technical skills and experimenting with new forms of expression. Rooted in a blend of Luxembourgish and Malagasy influences, Fonclair approaches his craft with an unwavering desire to grow and deepen his understanding of the relationship between sound and emotion. His Dj performances, are thoughtful mixes of rhythmes, melodies, and textures, that are designed to resonate with diverse audiences, creating immersive experiences. A staple at De Gudde Wëllen for over a decade, he is known for his crazy technical moments, his knack for building tension, and his ability to read the crowd, ensuring each set feels authentic and, most of all, in the moment. His genuine love for music and openness to new ideas leave a lasting impression, focusing on creating a collective journey for listeners rather than seeking the spotlight.</p>
+      </div>
+    </div>
 
-      </div>
-    </div>
     <div class="accordion-item">
-      <button onclick="this.parentElement.classList.toggle('active')">Work +</button>
+      <button onclick="toggleAccordion(this, 'sound2')">Work +</button>
       <div class="content">
-        <p>Listing under construction...</p>
+        <div class="work-grid">
+          <div class="work-item">
+            <img src="image-project1.png" alt="Project 1">
+            <p>Project 1 Description</p>
+          </div>
+          <div class="work-item">
+            <img src="image-project1.png" alt="Project 2">
+            <p>Project 2 Description</p>
+          </div>
+          <div class="work-item">
+            <img src="image-project1.png" alt="Project 3">
+            <p>Project 3 Description</p>
+          </div>
+          <div class="work-item">
+            <img src="image-project1.png" alt="Project 4">
+            <p>Project 4 Description</p>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="accordion-item">
-      <button onclick="this.parentElement.classList.toggle('active')">Contact +</button>
+      <button onclick="toggleAccordion(this, 'sound3')">Contact +</button>
       <div class="content">
         <p>+352661864586</p>
         <p><a href="mailto:strasserdean@icloud.com" class="email-link">strasserdean@icloud.com</a></p>
@@ -139,42 +185,90 @@
     </div>
   </section>
 
-  <!-- Stop Button -->
-  <button class="stop-button" id="stopButton">Stop Sound</button>
-
   <footer>
     © 2025 Fonclair
   </footer>
 
+  <audio id="sound1" src="needle stop.mp3" preload="auto"></audio>
+  <audio id="sound2" src="wow.mp3" preload="auto"></audio>
+  <audio id="sound3" src="soundcheck.mp3" preload="auto"></audio>
+
   <script>
-    // Create a new audio context
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    let currentSound = null; // Track the currently playing sound
 
-    // Create an oscillator node for the sine wave
-    const oscillator = audioContext.createOscillator();
-    oscillator.type = 'sine'; // Sine wave
-    oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // Start frequency at 440Hz
-    oscillator.connect(audioContext.destination);
-    oscillator.start();
+    function toggleAccordion(button, soundId) {
+      // Toggle the accordion item
+      button.parentElement.classList.toggle('active');
 
-    // Function to update frequency based on mouse movement
-    document.addEventListener('mousemove', (event) => {
-      // Map mouse position (x-axis) to a frequency range
-      const frequency = Math.map(event.clientX, 0, window.innerWidth, 100, 1000);
-      oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+      // Stop the previous sound if one is playing
+      if (currentSound && !currentSound.paused) {
+        currentSound.pause();
+        currentSound.currentTime = 0; // Reset the sound
+      }
+
+      // Play the new sound
+      const sound = document.getElementById(soundId);
+      sound.play();
+      currentSound = sound; // Set the current sound
+    }
+
+    // Particle Effect
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const particles = [];
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     });
 
-    // Function to stop the sound
-    document.getElementById('stopButton').addEventListener('click', () => {
-      oscillator.stop(); // Stops the oscillator
-      oscillator.disconnect(); // Disconnects the oscillator from the audio context
-      document.getElementById('stopButton').disabled = true; // Disables the stop button
+    class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 5 + 1;
+    this.speedX = Math.random() * 3 - 1.5;
+    this.speedY = Math.random() * 3 - 1.5;
+    this.color = `rgba(0, 0, 0, ${Math.random()})`;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.size -= 0.1;
+  }
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.size, this.size); // Draw square
+  }
+}
+
+    function handleParticles() {
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].size <= 0.5) {
+          particles.splice(i, 1);
+          i--;
+        }
+      }
+    }
+
+    window.addEventListener('mousemove', function(e) {
+      for (let i = 0; i < 5; i++) {
+        particles.push(new Particle(e.x, e.y));
+      }
     });
 
-    // Adding a smooth mapping function
-    Math.map = function (value, inMin, inMax, outMin, outMax) {
-      return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-    };
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      handleParticles();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
   </script>
 </body>
 </html>
