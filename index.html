@@ -8,9 +8,9 @@
     body {
 cursor: none; /* Hides the default cursor */      
 margin: 0;
-      background: linear-gradient(45deg, #f23456, #3800a1, #000000);
+      background: linear-gradient(45deg, #f5fae3, #FFFFFF, #f5fae3);
       background-size: 600% 600%;
-      animation: gradient-animation 20s ease infinite;
+      animation: gradient-animation 0.9s ease infinite;
       font-family: arial;
       font-size: 14px;
       color: black;
@@ -50,23 +50,26 @@ margin: 0;
       align-items: flex-start;
     }
 
-    .accordion-item {
-      margin: 5px 0;
-    }
+	.accordion-item {
+  	margin: 5px 0;
+  	border: none; 
+  	padding: 5px; 
+  	width: auto; 
+}
 
     .accordion-item button {
       background: none;
-      border: none;
+      border: 1px;
       cursor: pointer;
       font-size: 14px;
+font-weight: bold;
     }
 
     .accordion-item .content {
       display: none;
       font-size: 14px;
-      color: white;
+      color: #000000;
       margin-top: 5px;
-      font-weight: bold;
     }
 
     .accordion-item.active .content {
@@ -99,13 +102,16 @@ margin: 0;
     }
 
     .email-link {
-      color: #ffffff;
+      color: #000000;
       text-decoration: none;
     }
 
     .email-link:hover {
-      color: black;
-    }
+      color: white;
+  background-color: black; /* Changes background to black */
+  padding: 5px; /* Adds some padding */
+  border-radius: 0px; /* Rounds the edges slightly */
+}
 
     /* Work section grid layout */
     .work-grid {
@@ -118,12 +124,14 @@ margin: 0;
     .work-item img {
       width: 100%;
       height: auto;
+aspect-ratio: 1 / 1;
+object-fit: cover;
     }
 
     .work-item p {
-      margin-top: 10px;
+      margin-top: 8px;
       font-size: 12px;
-      color: #FFFFFF;
+      color: #000000;
     }
 
     /* Canvas styles for particle effect */
@@ -141,14 +149,14 @@ margin: 0;
   <canvas></canvas>
   <header>
     <img src="logofonclair2.png" alt="Logo">
-    <div class="text-placeholder">multidisciplinary sound artist</div>
+    <div class="text-placeholder">MULTIDISCIPLINARY SOUND ARTIST</div>
   </header>
 
   <section class="accordion">
     <div class="accordion-item">
       <button onclick="toggleAccordion(this, 'sound1')">About +</button>
       <div class="content">
-        <p>As a multidisciplinary sound artist and live performer for digital art expositions, Dean Strasser, also known as Fonclair, explores the intersection of sound and visual art, crafting immersive auditory experiences that complement dynamic digital installations. Pushing the boundaries of conventional sound design, he creates unique textures and atmospheres that bring art to life while constantly refining his technical skills and experimenting with new forms of expression. Rooted in a blend of Luxembourgish and Malagasy influences, Fonclair approaches his craft with an unwavering desire to grow and deepen his understanding of the relationship between sound and emotion. His Dj performances, are thoughtful mixes of rhythmes, melodies, and textures, that are designed to resonate with diverse audiences, creating immersive experiences. A staple at De Gudde Wëllen for over a decade, he is known for his crazy technical moments, his knack for building tension, and his ability to read the crowd, ensuring each set feels authentic and, most of all, in the moment. His genuine love for music and openness to new ideas leave a lasting impression, focusing on creating a collective journey for listeners rather than seeking the spotlight.</p>
+        <p>As a multidisciplinary sound artist and live performer for digital art expositions, Dean Strasser, also known as Fonclair, explores the intersection of sound and visual art, crafting immersive auditory experiences that complement dynamic digital installations. Pushing the boundaries of conventional sound design, he creates unique textures and atmospheres that bring art to life while constantly refining his technical skills and experimenting with new forms of expression. Rooted in a blend of Luxembourgish and Malagasy influences, Fonclair approaches his craft with an unwavering desire to grow and deepen his understanding of the relationship between sound and emotion. His Dj performances, are thoughtful mixes of rhythmes, melodies, and textures, that are designed to resonate with diverse audiences and create immersive experiences. A staple at De Gudde Wëllen for over a decade, he is known for his crazy technical moments, his knack for building tension, and his ability to read the crowd, ensuring each set feels authentic and, most of all, in the moment. His genuine love for music and openness to new ideas leave a lasting impression, focusing on creating a collective journey for listeners rather than seeking the spotlight.</p>
       </div>
     </div>
 
@@ -158,20 +166,23 @@ margin: 0;
         <div class="work-grid">
           <div class="work-item">
             <img src="image-project1.png" alt="Project 1">
-            <p>Project 1 Description</p>
+            <p>THE PROMISES OF MONSTERS by Laura Mannelli</p>
+<p>Sonic landscape designer / Sound designer / Composer / Performer
+</p>
+<p>The Promises of Monsters blends elements of plastic arts, video games, sonic scaping, new forms of narrative and architecture. For BIL, this exhibition is a perfect example of its commitment to promoting the national art and culture scene as well as innovation.</p>
+<p>Galerie Indépendance & CDA - 2017 / 2019</p>
+<p>COMMISSIONED BY</p>
+<p>BIL, Fondation Indépendance, Fonds Culturel National & CDA Paris</p>
           </div>
           <div class="work-item">
-            <img src="image-project1.png" alt="Project 2">
-            <p>Project 2 Description</p>
+            <img src="image-project2.png" alt="Project 2">
+            <p>PAREIDOLIA Ageometrical Disorder by REVV studio</p>
+<p>Mudam - La Nuit des Idées - 2018</p>
+<p>Presented by REVV studio, ‘PAREIDOLIA Ageometrical Disorder’ is a discovery of Virtual Reality through a workshop inspired by Edwin A. Abbott's novel ‘Flatland’. Abbott. A Cross Reality project combining VR (virtual reality), RL (reality) and AR (augmented reality). With the participation of Fonclair for the sound design.</p>
+<p>COMMISSIONED BY</p>
+<p>Mudam</p>
           </div>
-          <div class="work-item">
-            <img src="image-project1.png" alt="Project 3">
-            <p>Project 3 Description</p>
-          </div>
-          <div class="work-item">
-            <img src="image-project1.png" alt="Project 4">
-            <p>Project 4 Description</p>
-          </div>
+
         </div>
       </div>
     </div>
@@ -179,7 +190,7 @@ margin: 0;
     <div class="accordion-item">
       <button onclick="toggleAccordion(this, 'sound3')">Contact +</button>
       <div class="content">
-        <p>+352661864586</p>
+        <p><a href="tel:+352661864586" class="email-link" >+352661864586</a></p>
         <p><a href="mailto:strasserdean@icloud.com" class="email-link">strasserdean@icloud.com</a></p>
       </div>
     </div>
@@ -249,8 +260,8 @@ margin: 0;
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
-        if (particles[i].size <= 0.5) {
-          particles.splice(i, 1);
+        if (particles[i].size <= 100) {
+          particles.splice(i, 500);
           i--;
         }
       }
