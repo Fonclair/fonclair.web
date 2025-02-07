@@ -6,8 +6,8 @@
   <title>Fonclair | Sound Artist</title>
   <style>
     body {
-cursor: none; /* Hides the default cursor */      
-margin: 0;
+      cursor: none; /* Hides the default cursor */      
+      margin: 0;
       background: linear-gradient(45deg, #f5fae3, #FFFFFF, #f5fae3);
       background-size: 600% 600%;
       animation: gradient-animation 0.9s ease infinite;
@@ -50,19 +50,31 @@ margin: 0;
       align-items: flex-start;
     }
 
-	.accordion-item {
-  	margin: 5px 0;
-  	border: none; 
-  	padding: 5px; 
-  	width: auto; 
-}
+    .accordion-item {
+      margin: 5px 0;
+      border: none; 
+      padding: 5px; 
+      width: auto; 
+    }
 
     .accordion-item button {
       background: none;
       border: 1px;
       cursor: pointer;
       font-size: 14px;
-font-weight: bold;
+      font-weight: bold;
+    }
+
+    /* Default width for accordion content */
+    .accordion-item .content {
+      width: 100%; /* Default to full width */
+    }
+
+    /* Media query for desktop (larger screens) */
+    @media (min-width: 768px) {
+      .accordion-item .content {
+        width: 50%; /* 50% width on larger screens */
+      }
     }
 
     .accordion-item .content {
@@ -108,10 +120,10 @@ font-weight: bold;
 
     .email-link:hover {
       color: white;
-  background-color: black; /* Changes background to black */
-  padding: 5px; /* Adds some padding */
-  border-radius: 0px; /* Rounds the edges slightly */
-}
+      background-color: black; /* Changes background to black */
+      padding: 5px; /* Adds some padding */
+      border-radius: 0px; /* Rounds the edges slightly */
+    }
 
     /* Work section grid layout */
     .work-grid {
@@ -124,8 +136,8 @@ font-weight: bold;
     .work-item img {
       width: 100%;
       height: auto;
-aspect-ratio: 1 / 1;
-object-fit: cover;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
     }
 
     .work-item p {
@@ -168,23 +180,21 @@ On the dance floor, Fonclair’s sets are immersive journeys through rhythm and 
         <div class="work-grid">
           <div class="work-item">
             <img src="image-project0.png" alt="Project 1">
-            <p>THE PROMISES OF MONSTERS by Laura Mannelli</p>
-<p>Sonic landscape designer / Sound designer / Composer / Performer
-</p>
-<p>The Promises of Monsters blends elements of plastic arts, video games, sonic scaping, new forms of narrative and architecture. For BIL, this exhibition is a perfect example of its commitment to promoting the national art and culture scene as well as innovation.</p>
-<p>Galerie Indépendance & CDA - 2017 / 2019</p>
-<p>COMMISSIONED BY</p>
-<p>BIL, Fondation Indépendance, Fonds Culturel National & CDA Paris</p>
+            <p><b>THE PROMISES OF MONSTERS by Laura Mannelli</b></p>
+            <p>Sonic landscape designer / Sound designer / Composer / Performer</p>
+            <p>The Promises of Monsters blends elements of plastic arts, video games, sonic scaping, new forms of narrative and architecture. For BIL, this exhibition is a perfect example of its commitment to promoting the national art and culture scene as well as innovation.</p>
+            <p>Galerie Indépendance & CDA </p>
+            <p>COMMISSIONED BY</p>
+            <p>BIL, Fondation Indépendance, Fonds Culturel National & CDA Paris</p>
           </div>
           <div class="work-item">
             <img src="image-project2.png" alt="Project 2">
-            <p>PAREIDOLIA Ageometrical Disorder by REVV studio</p>
-<p>Mudam - La Nuit des Idées - 2018</p>
-<p>Presented by REVV studio, ‘PAREIDOLIA Ageometrical Disorder’ is a discovery of Virtual Reality through a workshop inspired by Edwin A. Abbott's novel ‘Flatland’. Abbott. A Cross Reality project combining VR (virtual reality), RL (reality) and AR (augmented reality). With the participation of Fonclair for the sound design.</p>
-<p>COMMISSIONED BY</p>
-<p>Mudam</p>
+            <p><b>PAREIDOLIA Ageometrical Disorder by REVV studio</b></p>
+            <p>Mudam - La Nuit des Idées </p>
+            <p>Presented by REVV studio, ‘PAREIDOLIA Ageometrical Disorder’ is a discovery of Virtual Reality through a workshop inspired by Edwin A. Abbott's novel ‘Flatland’. Abbott. A Cross Reality project combining VR (virtual reality), RL (reality) and AR (augmented reality). With the participation of Fonclair for the sound design.</p>
+            <p>COMMISSIONED BY</p>
+            <p>Mudam</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -239,24 +249,24 @@ On the dance floor, Fonclair’s sets are immersive journeys through rhythm and 
     });
 
     class Particle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.size = Math.random() * 5 + 1;
-    this.speedX = Math.random() * 3 - 1.5;
-    this.speedY = Math.random() * 3 - 1.5;
-    this.color = `rgba(0, 0, 0, ${Math.random()})`;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.size -= 0.1;
-  }
-  draw() {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.size, this.size); // Draw square
-  }
-}
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 5 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+        this.color = `rgba(0, 0, 0, ${Math.random()})`;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.size -= 0.1;
+      }
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.size, this.size); // Draw square
+      }
+    }
 
     function handleParticles() {
       for (let i = 0; i < particles.length; i++) {
